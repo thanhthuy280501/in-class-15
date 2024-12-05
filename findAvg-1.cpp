@@ -22,7 +22,10 @@ int averageScore(char name[]) {
   int sum = 0;
 
   f.open(name);
-
+  if ( f.fail())
+    throw FileError(name);
+  
+  
   //*************************************************************
   // Scan through the file to add scores to a sum.
   //*************************************************************
@@ -31,13 +34,29 @@ int averageScore(char name[]) {
     count++;
   }
   f.close();
+  // cosider;
+  // 
+  if (cout ==0)
+  throw (count);
 
   return (sum / count);
 }
 
 int main(int argc, char *argv[]) {
+  int avg;
+  if (argc ==1)
+    throw argc;
+  if (argc >2 ){
+    string s = argv[2];
+    throw s;
+  }
+}
+try {
 
   int avg = averageScore(argv[1]);
+}
+  Catch (FileError e){
+  cout << "That file " << e.getName() << "had a problem" 
 
   cout << avg << endl;
   
